@@ -53,6 +53,8 @@ command.competition.failure.no_competition: "<red>В настоящее врем
 command.competition.stop.success: "<white>Текущее соревнование остановлено.</white>"
 command.competition.end.success: "<white>Текущее соревнование завершено.</white>"
 command.competition.start.success: "<white>Соревнование началось.</white>"
+command.competition.setupworld.success: "<white>Мир соревнования установлен: <arg:0>.</white>"
+command.competition.failure.not_player: "<red>Эту команду может выполнить только игрок.</red>"
 command.bag.edit.failure.unsafe: "<red>Невозможно редактировать рыболовную сумку игрока, если он активен на другом связанном сервере.</red>"
 command.bag.edit.failure.never_played: "<red>Игрок никогда не заходил на сервер. Невозможно изменить рыболовную сумку несуществующего игрока.</red>"
 command.bag.open.success: "<white>Успешно открыта рыболовная сумка для <arg:0></white>"

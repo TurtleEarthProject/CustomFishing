@@ -53,6 +53,8 @@ command.competition.failure.no_competition: "<red>Hiện không có cuộc thi n
 command.competition.stop.success: "<white>Đã dừng cuộc thi hiện tại.</white>"
 command.competition.end.success: "<white>Đã kết thúc cuộc thi hiện tại.</white>"
 command.competition.start.success: "<white>Đã bắt đầu cuộc thi.</white>"
+command.competition.setupworld.success: "<white>Đã đặt world cuộc thi vào <arg:0>.</white>"
+command.competition.failure.not_player: "<red>Lệ này chỉ có người chơi có kể sửa.</red>"
 command.bag.edit.failure.unsafe: "<red>Không thể chỉnh sửa túi câu của người chơi nếu họ đang hoạt động trên một máy chủ liên kết khác.</red>"
 command.bag.edit.failure.never_played: "<red>Người chơi chưa từng tham gia máy chủ này. Không thể sửa đổi túi câu của người chơi không tồn tại.</red>"
 command.bag.open.success: "<white>Đã mở thành công túi câu cho <arg:0></white>"

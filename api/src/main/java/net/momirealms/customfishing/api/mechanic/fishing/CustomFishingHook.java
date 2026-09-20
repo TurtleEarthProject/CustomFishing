@@ -597,7 +597,9 @@ public class CustomFishingHook {
 
     private void doSuccessActions() {
         FishingCompetition competition = plugin.getCompetitionManager().getOnGoingCompetition();
-        if (competition != null && RequirementManager.isSatisfied(context, competition.getConfig().joinRequirements())) {
+        if (competition != null
+                && plugin.getCompetitionManager().isInCompetitionWorld(context.holder())
+                && RequirementManager.isSatisfied(context, competition.getConfig().joinRequirements())) {
             Double customScore = context.arg(ContextKeys.CUSTOM_SCORE);
             if (customScore != null) {
                 competition.refreshScore(context.holder(), customScore);

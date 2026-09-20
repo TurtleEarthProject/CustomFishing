@@ -52,6 +52,8 @@ command.competition.failure.no_competition: "<red>Não há competição em andam
 command.competition.stop.success: "<white>Competição atual interrompida.</white>"
 command.competition.end.success: "<white>Competição encerrada.</white>"
 command.competition.start.success: "<white>Competição iniciada.</white>"
+command.competition.setupworld.success: "<white>Mundo da competição definido como <arg:0>.</white>"
+command.competition.failure.not_player: "<red>Este comando só pode ser executado por um jogador.</red>"
 command.bag.edit.failure.unsafe: "<red>Não é possível editar a bolsa de pesca de um jogador ativo em outro servidor vinculado.</red>"
 command.bag.edit.failure.never_played: "<red>O jogador nunca entrou no servidor. Não é possível modificar uma bolsa de pesca inexistente.</red>"
 command.bag.open.success: "<white>Bolsa de pesca de <arg:0> aberta com sucesso</white>"

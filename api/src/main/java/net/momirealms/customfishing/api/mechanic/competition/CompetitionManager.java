@@ -18,6 +18,7 @@
 package net.momirealms.customfishing.api.mechanic.competition;
 
 import net.momirealms.customfishing.common.plugin.feature.Reloadable;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
@@ -98,4 +99,30 @@ public interface CompetitionManager extends Reloadable {
      * @param count the new player count.
      */
     void updatePlayerCount(UUID uuid, int count);
+
+    /**
+     * Gets the UUID of the world where the fishing competition event takes place.
+     * When set, only catches made in this world count towards the competition.
+     *
+     * @return the UUID of the competition world, or null if any world counts.
+     */
+    @Nullable
+    UUID getCompetitionWorld();
+
+    /**
+     * Sets the UUID of the world where the fishing competition event takes place.
+     * Pass null to clear the restriction and count catches from every world.
+     *
+     * @param worldId the UUID of the competition world, or null to clear it.
+     */
+    void setCompetitionWorld(@Nullable UUID worldId);
+
+    /**
+     * Checks whether a player is fishing in the configured competition world.
+     * When no competition world has been set up, every player is allowed.
+     *
+     * @param player the player to check.
+     * @return true if the player's world is the competition world (or no world is set), false otherwise.
+     */
+    boolean isInCompetitionWorld(@Nullable Player player);
 }

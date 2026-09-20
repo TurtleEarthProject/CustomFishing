@@ -52,6 +52,8 @@ command.competition.failure.no_competition: "<red>There's no competition ongoing
 command.competition.stop.success: "<white>Stopped the current competition.</white>"
 command.competition.end.success: "<white>Ended the current competition.</white>"
 command.competition.start.success: "<white>Started the competition.</white>"
+command.competition.setupworld.success: "<white>Set the competition world to <arg:0>.</white>"
+command.competition.failure.not_player: "<red>This command can only be run by a player.</red>"
 command.bag.edit.failure.unsafe: "<red>Cannot edit a player's fishing bag if they're active on another linked server.</red>"
 command.bag.edit.failure.never_played: "<red>The player hasn't joined the server before. Can't modify a nonexistent player's fishing bag.</red>"
 command.bag.open.success: "<white>Successfully opened the fishing bag for <arg:0></white>"

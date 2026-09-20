@@ -52,6 +52,8 @@ command.competition.failure.no_competition: "<red>当前没有正在进行的比
 command.competition.stop.success: "<white>成功停止当前比赛</white>"
 command.competition.end.success: "<white>成功结束当前比赛</white>"
 command.competition.start.success: "<white>成功开始比赛</white>"
+command.competition.setupworld.success: "<white>已将比赛世界设置为 <arg:0></white>"
+command.competition.failure.not_player: "<red>此命令只能由玩家执行</red>"
 command.bag.edit.failure.unsafe: "<red>因为玩家在另一个链接的服务器上在线, 所以无法编辑他的鱼袋</red>"
 command.bag.edit.failure.never_played: "<red>此玩家从未加入过该服务器. 无法修改不存在的玩家的鱼袋</red>"
 command.bag.open.success: "<white>成功打开 <arg:0> 的鱼袋</white>"

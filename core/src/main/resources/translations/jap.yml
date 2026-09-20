@@ -52,6 +52,8 @@ command.competition.failure.no_competition: "<red>現在進行中のコンペテ
 command.competition.stop.success: "<white>現在のコンペティションを停止しました。</white>"
 command.competition.end.success: "<white>コンペティションを終了しました。</white>"
 command.competition.start.success: "<white>コンペティションを開始しました。</white>"
+command.competition.setupworld.success: "<white>コンペティションのワールドを <arg:0> に設定しました。</white>"
+command.competition.failure.not_player: "<red>このコマンドはプレイヤーのみが実行できます。</red>"
 command.bag.edit.failure.unsafe: "<red>リンクされた別のサーバーでプレイヤーがアクティブな場合、釣りバッグを編集できません。</red>"
 command.bag.edit.failure.never_played: "<red>そのプレイヤーはサーバーに入ったことがありません。存在しないプレイヤーの釣りバッグを編集できません。</red>"
 command.bag.open.success: "<white><arg:0> の釣りバッグを正常に開きました</white>"

@@ -28,10 +28,16 @@ import net.momirealms.customfishing.api.mechanic.context.Context;
 import net.momirealms.customfishing.bukkit.storage.method.database.nosql.RedisManager;
 import net.momirealms.customfishing.common.plugin.scheduler.SchedulerTask;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Nullable;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
@@ -40,6 +46,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
 public class BukkitCompetitionManager implements CompetitionManager {
+    private static final String COMPETITION_WORLD_FILE = "competition-world";
     private final BukkitCustomFishingPlugin plugin;
     private final NavigableMap<CompetitionSchedule, CompetitionConfig> timeConfigMap;
     private final HashMap<String, CompetitionConfig> commandConfigMap;
@@ -50,6 +57,7 @@ public class BukkitCompetitionManager implements CompetitionManager {
     private final UUID identifier;
     private final ConcurrentHashMap<UUID, PlayerCount> playerCountMap;
     private RedisPlayerCount redisPlayerCount;
+    private UUID competitionWorld;
 
     public BukkitCompetitionManager(BukkitCustomFishingPlugin plugin) {
         this.plugin = plugin;
@@ -69,6 +77,7 @@ public class BukkitCompetitionManager implements CompetitionManager {
                 1,
                 TimeUnit.SECONDS
         );
+        this.loadCompetitionWorld();
         plugin.debug("Loaded " + commandConfigMap.size() + " competitions");
 
         if (ConfigManager.redisRanking()) {
@@ -266,6 +275,48 @@ public class BukkitCompetitionManager implements CompetitionManager {
     @Override
     public void updatePlayerCount(UUID uuid, int count) {
         playerCountMap.put(uuid, new PlayerCount(count, System.currentTimeMillis()));
+    }
+
+    @Nullable
+    @Override
+    public UUID getCompetitionWorld() {
+        return competitionWorld;
+    }
+
+    @Override
+    public void setCompetitionWorld(@Nullable UUID worldId) {
+        this.competitionWorld = worldId;
+        File file = new File(plugin.getDataFolder(), COMPETITION_WORLD_FILE);
+        if (worldId == null) {
+            if (file.exists() && !file.delete()) {
+                plugin.getPluginLogger().warn("Failed to delete the competition world file");
+            }
+            return;
+        }
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+            writer.write(worldId.toString());
+        } catch (IOException e) {
+            plugin.getPluginLogger().warn("Failed to save the competition world file", e);
+        }
+    }
+
+    @Override
+    public boolean isInCompetitionWorld(@Nullable Player player) {
+        if (competitionWorld == null) return true;
+        return player != null && competitionWorld.equals(player.getWorld().getUID());
+    }
+
+    private void loadCompetitionWorld() {
+        File file = new File(plugin.getDataFolder(), COMPETITION_WORLD_FILE);
+        if (!file.exists()) return;
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String uid = reader.readLine();
+            if (uid != null && !uid.isBlank()) {
+                this.competitionWorld = UUID.fromString(uid.trim());
+            }
+        } catch (IOException | IllegalArgumentException e) {
+            plugin.getPluginLogger().warn("Failed to load the competition world file", e);
+        }
     }
 
     private class RedisPlayerCount implements Runnable {

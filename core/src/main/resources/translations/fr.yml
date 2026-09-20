@@ -52,6 +52,8 @@ command.competition.failure.no_competition: "<red>Il n'y a pas de compétition e
 command.competition.stop.success: "<white>Arrêt de la compétition en cours.</white>"
 command.competition.end.success: "<white>Fin de la compétition en cours.</white>"
 command.competition.start.success: "<white>Début de la compétition.</white>"
+command.competition.setupworld.success: "<white>Le monde de la compétition a été défini sur <arg:0>.</white>"
+command.competition.failure.not_player: "<red>Cette commande ne peut être exécutée que par un joueur.</red>"
 command.bag.edit.failure.unsafe: "<red>Impossible d'éditer le Sac de Peche d'un joueur si il est actif sur un autre serveur lié.</red>"
 command.bag.edit.failure.never_played: "<red>Ce Joueur n'a pas encore rejoint le serveur. Impossible de modifier un Sac de Peche non-existant.</red>"
 command.bag.open.success: "<white>Ouverture du Sac de Pêche réussi pour <arg:0></white>"

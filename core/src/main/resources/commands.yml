@@ -95,6 +95,15 @@ start_competition:
     - /customfishing competition start
     - /cfishing competition start
 
+# A command to set the current world as the competition world
+# Usage: [COMMAND]
+setupworld_competition:
+  enable: true
+  permission: customfishing.command.competition
+  usage:
+    - /customfishing competition setupworld
+    - /cfishing competition setupworld
+
 # A command to open market for players
 # Usage: [COMMAND] [player]
 open_market:

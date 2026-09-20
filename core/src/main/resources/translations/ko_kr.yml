@@ -52,6 +52,8 @@ command.competition.failure.no_competition: "<red>현재 진행 중인 낚시 �
 command.competition.stop.success: "<white>현재 진행 중인 낚시 대회를 중단했습니다.</white>"
 command.competition.end.success: "<white>현재 진행 중인 낚시 대회를 종료했습니다.</white>"
 command.competition.start.success: "<white>낚시 대회를 시작했습니다.</white>"
+command.competition.setupworld.success: "<white>낚시 대회 월드를 <arg:0>(으)로 설정했습니다.</white>"
+command.competition.failure.not_player: "<red>이 명령어는 플레이어만 실행할 수 있습니다.</red>"
 command.bag.edit.failure.unsafe: "<red>플레이어가 다른 연동된 서버에서 활동 중일 때는 낚시 가방을 수정할 수 없습니다.</red>"
 command.bag.edit.failure.never_played: "<red>해당 플레이어는 서버에 접속한 적이 없습니다. 존재하지 않는 플레이어의 가방은 수정할 수 없습니다.</red>"
 command.bag.open.success: "<white><arg:0>의 낚시 가방을 열었습니다.</white>"
